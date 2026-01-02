@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Mundinho - Brasil</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="phone-screen screen-brasil">
+        
+        <header class="status-bar">
+            <span id="relogio">--:--</span>
+        </header>
+
+        <div class="home-header city-header">
+            <div class="avatar-display">
+    <img id="userAvatarDisplay" src="" alt="Avatar" style="display: none;">
+    <div id="defaultIcon" class="default-face">☺</div>
+
+    <div id="userMenu" class="user-menu">
+        <button class="menu-btn-option" onclick="irParaPerfil()">EDITAR PERFIL</button>
+        <button class="menu-btn-option" onclick="irParaHome()">VOLTAR PRA HOME</button>
+        <button class="menu-btn-option" onclick="sairDoApp()" style="color: #ff5555;">SAIR</button>
+    </div>
+</div>
+            
+            <h2 class="greeting-text" id="saudacaoNome">OLÁ, VIAJANTE!</h2>
+
+        <main class="content content-city">
+            
+            <h1 class="city-title">BRASIL</h1>
+
+            <div class="city-cover-box">
+                <img src="src/caramelo.gif" alt="Caramelo">
+            </div>
+
+            <div class="menu-grid">
+                <button class="menu-item">
+                    <img src="src/info.png" class="menu-icon" alt="Info">
+                    <span class="menu-label">INFO</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="src/local.png" class="menu-icon" alt="Pontos">
+                    <span class="menu-label">PONTOS</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="src/photo.png" class="menu-icon" alt="Álbum">
+                    <span class="menu-label">ÁLBUM</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="src/food.png" class="menu-icon" alt="Culinária">
+                    <span class="menu-label">CULINÁRIA</span>
+                </button>
+            </div>
+
+        </main>
+
+        <div id="screenInfo" class="detail-screen">
+            <div class="detail-box">
+                <div class="detail-header">
+                    <h2 class="detail-title">INFO</h2>
+                    <button class="close-detail-btn" onclick="fecharDetalhe('screenInfo')">
+                        <img src="src/minimize.png" alt="Fechar">
+                    </button>
+                </div>
+                <div class="detail-content">
+                    <p>Para começar bem, nada melhor do que falar do nosso país, não é mesmo? Cheio de cultura, comida boa, uma hospitalidade que NÃO TEM IGUAL e...é perto.</p>
+                    <br>
+                    <p>Se você pensou que usei esse primeiro passaporte como desculpa porque era mais fácil bolar algo sobre o nosso país e para podermos comer uma comidinha caseira vou dizer que você está completamente certa, como sempre :3 Mas tem outros detalhes como cidadezinhas históricas, belas paisagens e a graaaaaaaaande Estrada Real (que carimba os passaportes mesmo).</p>
+                    <br>
+                    <p>Temos muitos planos e alguns deles (a maioria ;-; ) terão que esperar um cadinho mas iremos rodar esse mundão. E enquanto esse mundão nos espera, vamos aproveitar o que temos de melhor aqui: salpicãozinho, tropeiro e tilápia fritinha com limãozinho....</p>
+                    <br>
+                    <p>Esse passaporte vai ficar tão carimbado que o pessoal a Federal vai brotar na nossa casa achando que somos traficantes internacionais (na realidade, vão é mandar os dois pro xilindró porque como que esses dois nomes sujos no Serasa estão conseguindo rodar o mundo todo com tanto amor na bagagem?). Mas por enquanto, vamos começar com o Brasil porque é aqui que começou a nossa história.</p>
+                    <br>
+                    <p>Pronta pra embarcar nessa viagem comigo?</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="screenPontos" class="detail-screen">
+            <div class="detail-box">
+                <div class="detail-header">
+                    <h2 class="detail-title">PONTOS</h2>
+                    <button class="close-detail-btn" onclick="fecharDetalhe('screenPontos')">
+                        <img src="src/minimize.png" alt="Fechar">
+                    </button>
+                </div>
+                <div class="detail-content">
+                    <p>Principais atrações:</p>
+                    <br>
+                    <ul>
+                        <li>Cristo Redentor (RJ)</li>
+                        <li>Pão de Açúcar (RJ)</li>
+                        <li>Cataratas do Iguaçu (PR)</li>
+                        <li>Pelourinho (BA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="screenAlbum" class="detail-screen">
+            <div class="detail-box">
+                <div class="detail-header">
+                    <h2 class="detail-title">ÁLBUM</h2>
+                    <button class="close-detail-btn" onclick="fecharDetalhe('screenAlbum')">
+                        <img src="src/minimize.png" alt="Fechar">
+                    </button>
+                </div>
+                <div class="detail-content">
+                    <p>Galeria de fotos em breve...</p>
+                    <p>Aqui você poderá ver suas memórias dessa viagem incrível.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="screenCulinaria" class="detail-screen">
+            <div class="detail-box">
+                <div class="detail-header">
+                    <h2 class="detail-title">CULINÁRIA</h2>
+                    <button class="close-detail-btn" onclick="fecharDetalhe('screenCulinaria')">
+                        <img src="src/minimize.png" alt="Fechar">
+                    </button>
+                </div>
+                <div class="detail-content">
+                    <p>Não podemos deixar o nosso tópico favorito de lado!</p>
+                    <br>
+                    <p>Por ser uma data especial... você pode escolher onde iremos comemorar nossa brasilidade:</p>
+                    <br>
+                    <p>★Tem algo mais brasileiro do que um <a href="https://share.google/fLqBGnTNrBYDvL68V" class="CulinariaBra">Pesque e pague</a>?</p>
+                    <br>
+                    <p>★Que tal uma comidinha mais caseira, forno a lenha...</p>
+                    <br>
+                    <p>★Podemos ousar e ir em uma comidinha do norte até o sul num <a href="https://share.google/9wJGiGH6OOVsW2zZP" class="CulinariaBra">dominguinho</a> (mas tem opções mais perto)!</p>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+    
+    <script src="script.js"></script>
+</body>
+</html>

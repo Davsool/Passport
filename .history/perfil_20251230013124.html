@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Mundinho - Perfil</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="phone-screen screen-galaxy">
+        
+        <header class="status-bar">
+            <span id="relogio">--:--</span>
+        </header>
+
+        <a href="cadastro.html" class="back-btn" aria-label="Voltar">
+            <img src="src/voltar.png" alt="Voltar">
+        </a>
+
+        <main class="content content-center">
+            
+            <h1 class="page-title">QUEM É VOCÊ?</h1>
+
+            <!-- ÁREA DE PREVIEW -->
+            <div class="avatar-selector-wrapper">
+                
+                <!-- O Preview Grande (Mostra a foto escolhida) -->
+                <div class="avatar-big-preview">
+                    <!-- Começa com a op1 -->
+                    <img id="fotoPreview" src="src/op1.jpg" alt="Avatar Escolhido">
+                </div>
+
+                <!-- Botão para abrir o Modal de Escolha -->
+                <button type="button" class="btn-gallery" onclick="abrirModalAvatar()">
+                    ABRIR GALERIA +
+                </button>
+
+            </div>
+
+            <form class="profile-form">
+                <div class="input-group">
+                    <label for="nome" style="color: #fff;">NOME</label>
+                    <input type="text" id="nome" placeholder="Insira seu nome">
+                </div>
+
+                <button type="submit" class="btn-submit">CONTINUAR</button>
+            </form>
+
+        </main>
+
+        <!-- ========================================= -->
+        <!-- MODAL DE GALERIA DE AVATARES              -->
+        <!-- ========================================= -->
+        <div id="modalAvatar" class="modal-overlay" style="display: none;">
+            <div class="modal-box avatar-modal-box">
+                <!-- Botão Fechar -->
+                <img src="src/fechar.png" class="close-btn-img" onclick="fecharModalAvatar()" alt="Fechar">
+                
+                <h3 class="modal-title">ESCOLHA UM ÍCONE</h3>
+                <p class="modal-desc">CLIQUE PARA SELECIONAR</p>
+                
+                <!-- A GRADE DE OPÇÕES (Aqui você adiciona mais!) -->
+                <div class="avatar-grid-scroll">
+                    
+                    <!-- OPÇÃO 1: Coração -> op1.jpg -->
+                    <!-- onclick: O primeiro parâmetro é o caminho da FOTO REAL -->
+                    <div class="avatar-grid-item" onclick="escolherAvatarNaGaleria('src/op1.jpg')">
+                        <img src="src/hearth.png" alt="Opção 1">
+                    </div>
+
+                    <!-- OPÇÃO 2: Coração -> op2.jpg -->
+                    <div class="avatar-grid-item" onclick="escolherAvatarNaGaleria('src/op2.jpg')">
+                        <img src="src/hearth.png" alt="Opção 2">
+                    </div>
+
+                    <!-- OPÇÃO 3: Coração -> op3.jpg -->
+                    <div class="avatar-grid-item" onclick="escolherAvatarNaGaleria('src/op3.jpg')">
+                        <img src="src/hearth.png" alt="Opção 3">
+                    </div>
+
+                    <!-- EXEMPLO: Como adicionar mais opções (copie e cole isso) -->
+                    <!-- 
+                    <div class="avatar-grid-item" onclick="escolherAvatarNaGaleria('src/op4.jpg')">
+                        <img src="src/outro_icone.png" alt="Opção 4">
+                    </div> 
+                    -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Mundinho</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="phone-screen">
+        <header class="status-bar">
+            <span id="relogio">--:--</span>
+        </header>
+
+        <div class="pixel-deco p1"></div>
+        <div class="pixel-deco p2"></div>
+        <div class="pixel-deco p3"></div>
+
+        <main class="content">
+            <h1 class="logo">
+                NOSSO<br>MUNDINHO
+            </h1>
+
+            <h2 class="section-title">ENTRAR</h2>
+
+            <form class="login-form" id="formLogin">
+                <div class="input-group">
+                    <label for="login">LOGIN</label>
+                    <input type="text" id="login" placeholder="Seu login aqui!">
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">SENHA</label>
+                    <div class="password-container">
+                        <input type="password" id="senha" placeholder="Senha">
+                        <button type="button" id="btnToggleSenha" aria-label="Mostrar senha">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <a href="#" class="forgot-link">ESQUECEU A SENHA?</a>
+
+                <button type="submit" class="btn-submit">ENTRAR</button>
+                <a href="perfil.html"></a>
+            </form>
+            
+            <div class="signup-area">
+                <p>NÃO POSSUI UMA CONTA?</p>
+                <a href="cadastro.html">CADASTRE-SE!</a>
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

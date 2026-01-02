@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Mundinho - Perfil</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="phone-screen screen-galaxy">
+        
+        <header class="status-bar">
+            <span id="relogio">--:--</span>
+        </header>
+
+        <a href="cadastro.html" class="back-btn" aria-label="Voltar">
+            <img src="src/voltar.png" alt="Voltar">
+        </a>
+
+        <main class="content content-center">
+            
+            <h1 class="page-title">QUEM É VOCÊ?</h1>
+
+            <!-- ÁREA DE SELEÇÃO DE AVATAR -->
+            <div class="avatar-selector-wrapper">
+                
+                <!-- 1. O Preview Grande (Mostra a foto real escolhida) -->
+                <div class="avatar-big-preview">
+                    <!-- Começa com a op1 -->
+                    <img id="fotoPreview" src="src/op1.jpg" alt="Avatar Escolhido">
+                </div>
+
+                <!-- 2. As 3 Opções Pequenas (Mostram corações) -->
+                <div class="avatar-options">
+                    <!-- O 'src' mostra o coração, o 'data-src' guarda a foto real -->
+                    
+                    <!-- Opção 1 -->
+                    <img src="src/hearth.png" class="avatar-option selected" data-src="src/op1.jpg" alt="Opção 1">
+                    
+                    <!-- Opção 2 -->
+                    <img src="src/hearth.png" class="avatar-option" data-src="src/op2.jpgg" alt="Opção 2">
+                    
+                    <!-- Opção 3 -->
+                    <img src="src/hearth.png" class="avatar-option" data-src="src/op3.jpg" alt="Opção 3">
+                </div>
+
+            </div>
+
+            <form class="profile-form">
+                <div class="input-group">
+                    <label for="nome" style="color: #fff;">NOME</label>
+                    <input type="text" id="nome" placeholder="Insira seu nome">
+                </div>
+
+                <button type="submit" class="btn-submit">CONTINUAR</button>
+            </form>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

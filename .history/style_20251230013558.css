@@ -1,0 +1,819 @@
+/* ================================================== */
+/* 1. RESET E ESTRUTURA BÁSICA                        */
+/* ================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Silkscreen', cursive;
+}
+
+body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* A moldura do telemóvel */
+.phone-screen {
+    width: 350px; /* Ajuste para 315px se preferir mais estreito */
+    height: 812px;
+    /* Imagem de fundo da moldura */
+    background-image: url('src/pink.gif'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra de Status (Relógio) */
+.status-bar {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    z-index: 10;
+}
+
+/* Contentor Padrão (Login/Registo) */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
+    margin-top: 40px;
+}
+
+/* ================================================== */
+/* 2. COMPONENTES VISUAIS (Logótipos, Inputs, Botões) */
+/* ================================================== */
+
+.logo {
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+.section-title {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.square-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.input-group { margin-bottom: 20px; }
+
+label {
+    display: block;
+    font-size: 12px;
+    color: #000;
+    margin-bottom: 8px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    font-size: 14px;
+    background: #fff;
+    color: #555;
+    outline: none;
+}
+
+input::placeholder { color: #bbb; }
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#btnToggleSenha {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+}
+
+.forgot-link {
+    display: block;
+    text-align: right;
+    color: #2b2b40;
+    font-size: 10px;
+    text-decoration: underline;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #262833;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover { background-color: #404250; }
+
+.signup-area {
+    text-align: center;
+    font-size: 10px;
+    color: #2b2b40;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.signup-area a { color: #2b2b40; text-decoration: underline; }
+
+/* Decoração Pixelizada */
+.pixel-deco {
+    position: absolute;
+    background: #fff;
+    width: 6px;
+    height: 6px;
+    box-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+.p1 { top: 15%; left: 20%; }
+.p2 { top: 12%; right: 25%; width: 8px; height: 8px; }
+.p3 { top: 38%; left: 45%; }
+
+
+/* ================================================== */
+/* 3. ECRÃ DE PERFIL                                  */
+/* ================================================== */
+
+.screen-galaxy {
+    background-image: url('src/galaxy.png') !important;
+}
+
+.back-btn {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    z-index: 20;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: transform 0.2s;
+}
+.back-btn:hover { transform: scale(1.1); }
+
+.content-center {
+    justify-content: flex-start;
+    padding-top: 100px;
+}
+
+.page-title {
+    color: #fff;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+}
+
+/* Seletor de Avatar */
+.avatar-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.avatar-big-preview {
+    width: 120px;
+    height: 120px;
+    background-color: #2c2e3a;
+    border: 4px solid #fff;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 0; /* Garante que não tenha espaço interno */
+    display: flex; /* Ajuda a remover espaços fantasma de img */
+}
+
+.avatar-big-preview img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Preenche todo o quadrado cortando excessos */
+    display: block;
+}
+
+.avatar-options { display: flex; gap: 15px; }
+
+.avatar-option {
+    width: 50px; height: 50px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    transition: all 0.2s;
+    background-color: #2c2e3a;
+    
+    /* Ajuste para o ícone de coração caber bem dentro */
+    padding: 10px; 
+    object-fit: contain; 
+    
+    /* --- CORREÇÃO: TORNAR O ÍCONE BRANCO --- */
+    filter: brightness(0) invert(1); 
+}
+
+.avatar-option:hover { opacity: 1; transform: scale(1.1); }
+
+.avatar-option.selected {
+    opacity: 1;
+    border: 2px solid #4CAF50; /* Borda verde quando selecionado */
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    transform: scale(1.1);
+    background-color: #2c2e3a;
+}
+
+.profile-form label {
+    color: #fff !important;
+    text-shadow: 1px 1px 0 #000;
+}
+
+
+/* ================================================== */
+/* 4. ECRÃ HOME (Terra)                               */
+/* ================================================== */
+
+.screen-earth { 
+    background-image: url('src/world.png');
+    background-size: cover;
+    background-position: center center;
+}
+
+.content-home {
+    padding-top: 40px; 
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.home-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 500; /* Garante que o menu dentro fique acima de tudo */
+}
+
+.avatar-display {
+    width: 50px;
+    height: 50px;
+    background-color: #bcaaa4;
+    border: 2px solid #8d7b75;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible; 
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    position: relative;
+    cursor: pointer;
+    z-index: 500;
+    padding: 0; /* Remove padding para a foto colar na borda */
+}
+
+.avatar-display:active { transform: scale(0.95); }
+
+.avatar-display img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Preenche todo o quadrado */
+    display: block;
+}
+
+.default-face { font-size: 24px; color: #5d4037; }
+
+.greeting-text {
+    font-size: 16px;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.travel-title {
+    font-size: 48px;
+    color: #fff;
+    text-align: center;
+    line-height: 1.3;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.6);
+    margin-top: 20px;
+    margin-bottom: auto;
+    width: 100%;
+}
+
+.home-footer { width: 100%; text-align: center; }
+.btn-home { margin-bottom: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+.help-link { font-size: 10px; color: #ccc; text-decoration: underline; display: block; letter-spacing: 1px; }
+
+
+/* ================================================== */
+/* 5. MODAL DE SENHA (Caixa Flutuante)                */
+/* ================================================== */
+
+.modal-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    padding: 20px;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 280px;
+    background-color: #2c2e3a;
+    border: 2px solid #fff;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+    padding: 25px 15px;
+    position: relative;
+    text-align: center;
+    animation: pixelPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pixelPop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-title {
+    color: #fff; font-size: 16px; margin-bottom: 8px; letter-spacing: 1px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.modal-desc { color: #ccc; font-size: 9px; margin-bottom: 15px; text-transform: uppercase; }
+
+#inputCodigo {
+    width: 100%;
+    background-color: #fff; color: #000;
+    border: 2px solid #000;
+    font-size: 22px; font-weight: bold;
+    text-align: center; letter-spacing: 6px;
+    padding: 10px 0; margin-bottom: 20px;
+    box-shadow: inset 2px 2px 0 rgba(0,0,0,0.2);
+    outline: none;
+}
+
+.btn-modal {
+    width: 100%;
+    background-color: #4CAF50; color: #fff;
+    border: none; padding: 12px;
+    font-size: 14px; text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #2e7d32;
+    transition: all 0.1s;
+    margin-bottom: 0;
+}
+
+.btn-modal:active { transform: translateY(4px); box-shadow: 0 0 0 #2e7d32; }
+
+.close-btn-img {
+    position: absolute; top: 10px; right: 10px;
+    width: 20px; height: 20px;
+    cursor: pointer; transition: transform 0.2s;
+    filter: brightness(0) invert(1);
+}
+.close-btn-img:hover { transform: scale(1.2); }
+
+
+/* ================================================== */
+/* 6. ECRÃS DE PAÍSES (Brasil, Japão...)              */
+/* ================================================== */
+
+.screen-brasil {
+    background-image: url('src/favela.gif');
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3); 
+}
+
+.city-header {
+    padding-top: 70px; 
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+
+.content-city {
+    padding: 0 20px;
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Botões no fundo */
+    
+    /* CORREÇÃO: Remove espaço extra no fundo */
+    padding-bottom: 0; 
+}
+
+.city-title {
+    font-size: 32px;
+    color: #fff;
+    text-shadow: 4px 4px 0 #000;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    z-index: 10;
+}
+
+.city-cover-box {
+    width: 200px;
+    height: 200px;
+    margin-top: auto; /* Centraliza verticalmente no espaço vazio */
+    margin-bottom: auto;
+    border: 3px solid #fff;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.city-cover-box img {
+    max-width: 100%; max-height: 100%; object-fit: contain;
+}
+
+/* ================================================== */
+/* 6.1 Extras dos países (Brasil)              */
+/* ================================================== */
+
+.CulinariaBra{
+    color: #ffff
+}
+
+
+/* Botão mutado */
+.music-btn.music-muted {
+    background-image: url("../src/mute.png");
+    background-color: transparent !important;
+    border: none !important;
+    outline: none;
+    margin-left: auto; /* Empurra para a direita */
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    width: 32px; 
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+}
+
+/* Botão no mood tocar rádio */
+.music-btn.music-playing {
+    background-image: url("../src/volume.png");
+    background-color: transparent !important;
+    border: none !important;
+    outline: none;
+    margin-left: auto; /* Empurra para a direita */
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    width: 32px; 
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/* ================================================== */
+/* 7. GRELHA DO MENU (Estilo Atualizado)              */
+/* ================================================== */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+    margin-top: 0;
+    
+    /* Pequena margem inferior para não colar no fim do ecrã */
+    margin-bottom: 20px; 
+}
+
+.menu-item {
+    background-color: #2c2e3a;
+    border: none;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+    display: block; 
+    padding: 0;
+}
+
+.menu-item:hover { background-color: #353846; }
+.menu-item:active { transform: translateY(2px); box-shadow: 2px 2px 0 rgba(0,0,0,0.3); }
+
+.menu-icon {
+    position: absolute;
+    top: 15px; left: 15px;
+    width: 28px; height: 28px;
+    filter: brightness(0) invert(1);
+}
+
+.menu-label {
+    position: absolute;
+    bottom: 15px; left: 15px;
+    color: #fff;
+    font-size: 13px; font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+
+/* ================================================== */
+/* 8. MODAIS DE DETALHES (Info, Pontos...)            */
+/* ================================================== */
+
+.detail-screen {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 800;
+    display: flex; justify-content: center; align-items: center;
+    padding: 20px;
+    opacity: 0; visibility: hidden;
+    transition: all 0.2s ease-in-out;
+    backdrop-filter: blur(2px);
+}
+
+.detail-screen.active { opacity: 1; visibility: visible; }
+
+.detail-box {
+    width: 100%; max-height: 80%;
+    background-color: #2c2e3a;
+    border: 2px solid #fff;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.5);
+    display: flex; flex-direction: column;
+    position: relative;
+    transform: scale(0.9); transition: transform 0.2s;
+}
+
+.detail-screen.active .detail-box { transform: scale(1); }
+
+.detail-header {
+    display: flex; align-items: center; justify-content: center;
+    padding: 15px;
+    border-bottom: 2px solid #fff;
+    background-color: #23252f;
+}
+
+.detail-title {
+    color: #fff; font-size: 18px; letter-spacing: 1px; margin: 0;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.close-detail-btn {
+    position: absolute; top: 12px; right: 12px;
+    background: none; border: none; cursor: pointer; padding: 0;
+}
+
+.close-detail-btn img {
+    width: 20px; height: 20px;
+    filter: brightness(0) invert(1); transition: transform 0.2s;
+}
+.close-detail-btn:hover img { transform: scale(1.2); }
+
+.detail-content {
+    padding: 20px;
+    color: #ddd; font-size: 12px; line-height: 1.6;
+    text-align: justify;
+    overflow-y: auto;
+}
+
+.detail-content::-webkit-scrollbar { width: 6px; }
+.detail-content::-webkit-scrollbar-thumb { background-color: #fff; border: 2px solid #2c2e3a; }
+
+
+/* ================================================== */
+/* 9. MENU DO UTILIZADOR (Dropdown)                   */
+/* ================================================== */
+
+.user-menu {
+    display: none;
+    position: absolute;
+    top: 60px; left: 0;
+    background-color: #2c2e3a;
+    border: 2px solid #fff;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+    flex-direction: column;
+    width: 160px;
+    z-index: 600;
+}
+
+.user-menu.active {
+    display: flex;
+    animation: menuPop 0.2s ease-out;
+}
+
+@keyframes menuPop {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-btn-option {
+    background: none; border: none;
+    color: #fff;
+    font-family: 'Silkscreen', cursive;
+    font-size: 10px; text-align: left;
+    padding: 12px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+}
+
+.menu-btn-option:last-child { border-bottom: none; }
+.menu-btn-option:hover { background-color: #404250; color: #ffff00; }
+
+
+/*4.1 Remendo do gif*/
+.bg-patch {
+    position: absolute;
+    background-color: #131a25;
+    width: 85px; 
+    height: 18px; 
+    bottom: 18px; 
+    left: 2px;   
+    z-index: 1; 
+}
+
+
+/* O Botão Glitch (Estilos Visuais) */
+.btn {
+    --primary: #a0297c;
+    --shadow-primary: #fded00;
+    --color: white;
+    --font-size: 16px;
+    --shadow-primary-hue: 180;
+    --shadow-secondary-hue: 60;
+    --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+    --clip: polygon(11% 0, 95% 0, 100% 25%, 90% 90%, 95% 90%, 85% 90%, 85% 100%, 7% 100%, 0 80%);
+    --border: 2px;
+    --shimmy-distance: 5;
+    --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+    --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+    --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+    --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+    --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+    --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+    --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+    
+    color: var(--color);
+    text-transform: uppercase;
+    font-size: var(--font-size);
+    letter-spacing: 1px;
+    position: relative;
+    font-weight: 900;
+    width: 100%;
+    height: 100%;
+    line-height: 38px;
+    text-align: center;
+    transition: background 0.2s, 0.3s;
+    cursor: pointer;
+    font-family: 'Silkscreen', cursive;
+}
+
+.btn:hover {
+    --primary: #a52f82;
+}
+
+.btn:after, .btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    clip-path: var(--clip);
+    z-index: -1;
+}
+
+.btn:before {
+    background: var(--shadow-primary);
+    transform: translate(var(--border), 0);
+}
+
+.btn:after {
+    background: var(--primary);
+}
+
+.btn__glitch {
+    position: absolute;
+    top: calc(var(--border) * -1);
+    left: calc(var(--border) * -1);
+    right: calc(var(--border) * -1);
+    bottom: calc(var(--border) * -1);
+    background: var(--shadow-primary);
+    text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+    clip-path: var(--clip);
+    animation: glitch 2s infinite;
+    display: none;
+    line-height: 38px;
+}
+
+.radio-wrapper:hover .btn .btn__glitch {
+    display: block;
+}
+
+.btn__glitch:before {
+    content: '';
+    position: absolute;
+    top: calc(var(--border) * 1);
+    right: calc(var(--border) * 1);
+    bottom: calc(var(--border) * 1);
+    left: calc(var(--border) * 1);
+    clip-path: var(--clip);
+    background: var(--primary);
+    z-index: -1;
+}
+
+@keyframes glitch {
+    0% { clip-path: var(--clip-one); }
+    2%, 8% { clip-path: var(--clip-two); transform: translate(calc(var(--shimmy-distance) * -1%), 0); }
+    6% { clip-path: var(--clip-two); transform: translate(calc(var(--shimmy-distance) * 1%), 0); }
+    9% { clip-path: var(--clip-two); transform: translate(0, 0); }
+    10% { clip-path: var(--clip-three); transform: translate(calc(var(--shimmy-distance) * 1%), 0); }
+    13% { clip-path: var(--clip-three); transform: translate(0, 0); }
+    14%, 21% { clip-path: var(--clip-four); transform: translate(calc(var(--shimmy-distance) * 1%), 0); }
+    25% { clip-path: var(--clip-five); transform: translate(calc(var(--shimmy-distance) * 1%), 0); }
+    30% { clip-path: var(--clip-five); transform: translate(calc(var(--shimmy-distance) * -1%), 0); }
+    35%, 45% { clip-path: var(--clip-six); transform: translate(calc(var(--shimmy-distance) * -1%)); }
+    40% { clip-path: var(--clip-six); transform: translate(calc(var(--shimmy-distance) * 1%)); }
+    50% { clip-path: var(--clip-six); transform: translate(0, 0); }
+    55% { clip-path: var(--clip-seven); transform: translate(calc(var(--shimmy-distance) * 1%), 0); }
+    60% { clip-path: var(--clip-seven); transform: translate(0, 0); }
+    31%, 61%, 100% { clip-path: var(--clip-four); }
+}
+
+.number {
+    background: var(--shadow-primary);
+    color: #323232;
+    font-size: 5.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: absolute;
+    width: 15px;
+    height: 6px;
+    top: 0;
+    left: 81%;
+    line-height: 6.2px;
+}

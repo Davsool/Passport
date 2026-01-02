@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Mundinho - Home</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Tela Home (Terra) -->
+    <div class="phone-screen screen-earth">
+        
+        <header class="status-bar">
+            <span id="relogio">--:--</span>
+        </header>
+
+        <main class="content content-home">
+                        
+            <!-- Cabeçalho com Foto e Nome -->
+            <div class="home-header">
+                <div class="avatar-display">
+                    <img id="userAvatarDisplay" src="" alt="Avatar" style="display: none;">
+                    <div id="defaultIcon" class="default-face">☺</div>
+                </div>
+                    <div id="userMenu" class="user-menu">
+        <button class="menu-btn-option" onclick="irParaPerfil()">EDITAR PERFIL</button>
+        <button class="menu-btn-option" onclick="irParaHome()">VOLTAR PRA HOME</button>
+        <button class="menu-btn-option" onclick="sairDoApp()" style="color: #ff5555;">SAIR</button>
+        </div>
+                <h2 class="greeting-text" id="saudacaoNome">OLÁ, VIAJANTE!</h2>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="travel-title">VAMOS<br>VIAJAR.</h1>
+
+            <!-- Botão Entrar e Ajuda -->
+            <div class="home-footer">
+                <button class="btn-submit btn-home">ENTRAR</button>
+                
+                <!-- Container para o botão ? e o link de ajuda -->
+                <div class="help-container">
+                    
+                    <!-- BOTÃO GLITCH DE AJUDA (?) -->
+                    <div class="radio-wrapper help-btn-wrapper">
+                        <div class="btn">
+                            ?
+                            <span class="btn__glitch">_?_</span>
+                            <label class="number">r1</label>
+                        </div>
+                    </div>
+
+                    <a href="#" class="help-link">PRECISANDO DE AJUDA?</a>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- === MODAL / CAIXA FLUTUANTE === -->
+        <div id="modalOverlay" class="modal-overlay" style="display: none;">
+            <div class="modal-box">
+                <!-- Botão Fechar (Imagem) -->
+                <img src="src/fechar.png" id="closeModal" class="close-btn-img" alt="Fechar">
+                
+                <h3 class="modal-title">ACESSO RESTRITO</h3>
+                <p class="modal-desc">INSIRA O CÓDIGO DE 6 DÍGITOS:</p>
+                
+                <input type="text" id="inputCodigo" maxlength="6" placeholder="000000" autocomplete="off">
+                
+                <button id="btnValidarCodigo" class="btn-submit btn-modal">CONFIRMAR</button>
+            </div>
+        </div>
+        <!-- === FIM DO MODAL === -->
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
