@@ -1,5 +1,5 @@
 /* ================================================== */
-/* 1. RESET E ESTRUTURA BÁSICA                        */
+/* 1. RESET E ESTRUTURA BÁSICA                        */
 /* ================================================== */
 * {
     margin: 0;
@@ -173,7 +173,7 @@ input::placeholder { color: #bbb; }
 
 
 /* ================================================== */
-/* 3. ECRÃ DE PERFIL                                  */
+/* 3. ECRÃ DE PERFIL                                  */
 /* ================================================== */
 
 /* Removemos o background direto da div principal para não afetar os filhos */
@@ -287,17 +287,15 @@ input::placeholder { color: #bbb; }
 
 
 /* ================================================== */
-/* 4. ECRÃ HOME (Terra)                               */
+/* 4. ECRÃ HOME (Terra)                               */
 /* ================================================== */
 
 .screen-earth { 
     background-image: url('src/earthgo.gif');
-    
-    /* --- CONFIGURAÇÃO DE ZOOM E POSIÇÃO --- */
     background-size: 232%; 
-    background-position: -220px -50px; /* Ajuste fino em pixels para mover */
     background-repeat: no-repeat;
     background-color: #000; 
+    background-position: -220px -50px; 
 }
 
 .content-home {
@@ -312,6 +310,7 @@ input::placeholder { color: #bbb; }
     height: 100%;
 }
 
+/* Header Reorganizado */
 .home-header {
     display: flex;
     align-items: center;
@@ -319,58 +318,18 @@ input::placeholder { color: #bbb; }
     width: 100%;
     margin-bottom: 20px;
     position: relative;
-    z-index: 500; 
+    z-index: 500; /* Garante que o menu funcione */
 }
 
-.avatar-display {
-    width: 50px;
-    height: 50px;
-    background-color: #bcaaa4;
-    border: 2px solid #8d7b75;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: visible; 
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
-    position: relative;
-    cursor: pointer;
-    z-index: 500;
-    padding: 0; 
-}
-
-.avatar-display:active { transform: scale(0.95); }
-
-.avatar-display img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    display: block;
-}
-
-.default-face { font-size: 24px; color: #5d4037; }
-
+/* Garante que a saudação ocupe o espaço mas não empurre o botão para fora */
 .greeting-text {
     font-size: 16px;
     color: #fff;
     text-shadow: 2px 2px 0 #000;
     letter-spacing: 1px;
     white-space: nowrap;
+    flex-grow: 1; /* Ocupa o espaço entre o avatar e o botão ? */
 }
-
-.travel-title {
-    font-size: 48px;
-    color: #fff;
-    text-align: center;
-    line-height: 1.3;
-    text-shadow: 4px 4px 0 rgba(0,0,0,0.6);
-    margin-top: 20px;
-    margin-bottom: auto;
-    width: 100%;
-}
-
-.home-footer { width: 100%; text-align: center; }
-.btn-home { margin-bottom: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-.help-link { font-size: 10px; color: #ccc; text-decoration: underline; display: block; letter-spacing: 1px; }
 
 /* 4.1 Remendo do gif */
 .bg-patch {
@@ -379,26 +338,26 @@ input::placeholder { color: #bbb; }
     width: 85px; 
     height: 19px; 
     bottom: 67px; 
-    left: 0px; 
+    left: 0px;   
     z-index: 1; 
 }
 
 
 /* ================================================== */
-/* 5. MODAL DE SENHA (Caixa Flutuante)                */
+/* 5. MODAL DE SENHA (Caixa Flutuante)                */
 /* ================================================== */
 
 .modal-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     background-color: rgba(0, 0, 0, 0.85);
-    z-index: 1000;
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(2px);
     padding: 20px;
-    animation: slide-up 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .modal-box {
@@ -459,7 +418,7 @@ input::placeholder { color: #bbb; }
 
 
 /* ================================================== */
-/* 6. ECRÃS DE PAÍSES (Brasil, Japão...)              */
+/* 6. ECRÃS DE PAÍSES (Brasil, Japão...)              */
 /* ================================================== */
 
 .screen-brasil {
@@ -553,7 +512,7 @@ input::placeholder { color: #bbb; }
 
 
 /* ================================================== */
-/* 7. GRELHA DO MENU (Estilo Atualizado)              */
+/* 7. GRELHA DO MENU (Estilo Atualizado)              */
 /* ================================================== */
 
 .menu-grid {
@@ -599,7 +558,7 @@ input::placeholder { color: #bbb; }
 
 
 /* ================================================== */
-/* 8. MODAIS DE DETALHES (Info, Pontos...)            */
+/* 8. MODAIS DE DETALHES (Info, Pontos...)            */
 /* ================================================== */
 
 .detail-screen {
@@ -661,12 +620,9 @@ input::placeholder { color: #bbb; }
 .detail-content::-webkit-scrollbar { width: 6px; }
 .detail-content::-webkit-scrollbar-thumb { background-color: #fff; border: 2px solid #2c2e3a; }
 
-.Culinariabra{
-    color: blueviolet;
-}
 
 /* ================================================== */
-/* 9. MENU DO UTILIZADOR (Dropdown)                   */
+/* 9. MENU DO UTILIZADOR (Dropdown)                   */
 /* ================================================== */
 
 .user-menu {
@@ -707,7 +663,7 @@ input::placeholder { color: #bbb; }
 
 
 /* ================================================== */
-/* 10. MODAL DE GALERIA DE AVATAR                     */
+/* 10. MODAL DE GALERIA DE AVATAR                     */
 /* ================================================== */
 
 .btn-gallery {
@@ -766,7 +722,7 @@ input::placeholder { color: #bbb; }
 
 
 /* ================================================== */
-/* 11. ANIMAÇÕES EXTRAS                               */
+/* 11. ANIMAÇÕES EXTRAS                               */
 /* ================================================== */
 
 @-webkit-keyframes slide-in-elliptic-top-fwd {
@@ -780,7 +736,7 @@ input::placeholder { color: #bbb; }
 
 
 /* ================================================== */
-/* 12. BOTÃO GLITCH DE AJUDA (?) - COM CORES NOVAS    */
+/* 12. BOTÃO GLITCH DE AJUDA (?) - COM CORES NOVAS    */
 /* ================================================== */
 
 /* Container */
@@ -794,25 +750,32 @@ input::placeholder { color: #bbb; }
     min-height: 40px;
 }
 
-/* Wrapper do botão - MOVIDO PARA A DIREITA */
+/* Wrapper do botão (Agora no Header) */
 .radio-wrapper.help-btn-wrapper {
-    position: absolute;
-    right: 0; /* Alterado de left:0 para right:0 */
-    top: 50%;
-    transform: translateY(-50%) scale(0.8); 
+    position: relative; /* Não é mais absolute em relação à tela, mas flui no header */
+    /* Removemos left/top absolutos anteriores */
     
     height: 38px;
     width: 38px;
     margin: 0;
     z-index: 20;
     
+    /* Mantém o efeito de escala */
+    transform: scale(0.8); 
+    
+    /* Efeito de invisibilidade */
     opacity: 0.05; 
     transition: opacity 0.4s ease;
     text-decoration: none; 
     display: block;
+
+    /* APLICA A ANIMAÇÃO DE SUBIDA QUE VOCÊ PEDIU */
+    animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-.radio-wrapper.help-btn-wrapper:hover { opacity: 1; }
+.radio-wrapper.help-btn-wrapper:hover {
+    opacity: 1; 
+}
 
 /* O Botão Glitch Interno (Cores #a0297c) */
 .btn {
